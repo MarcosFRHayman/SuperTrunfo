@@ -1,13 +1,18 @@
-##Trunfo para celular
+## Trunfo para celular
 
 Esse é um projeto de um jogo de trunfo para celular feito durante o curso de Ciências da Computação na disciplina de Laboratório de Dispositivos Móveis.
 
-#Build
+#Git
+
+É possível que seja necessário do Git LFS para poder dar pull. A especificação fica em https://git-lfs.github.com/
+
+# Build
 
 A versão do Unity é 2020.3.13f1.
 Tenha os módulos para build de Android e iOS instalada, isso pode ser feito pelo Unity Hub.
+Deixar o Target API Level como Automatic em Player Preferences.
 
-#Firebase
+# Firebase
 
 Cada membro da equipe que for trabalhar com Firebase tem que registrar sua chave SHA-1 no Firebase Console, para fazer isso:
 
