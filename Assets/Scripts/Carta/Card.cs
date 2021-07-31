@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,16 +12,32 @@ namespace Trunfo
         [SerializeField] public TipoDeTrunfo tipo;
         [SerializeField] private string nome;
         [SerializeField] private string descricao;
-        [SerializeField] private int pontos;
+        [SerializeReference] private float[] pontos;
         [SerializeField] private Sprite artwork;
 
         public string Nome { get => nome; }
         public string Descricao { get => descricao; }
-        public int Pontos { get => pontos; }
+        ///A referencia não é alterável
+        public float[] Pontos { get => (float[])pontos.Clone(); }
 
-        public void Print()
+        void OnValidate()
         {
-
+            Debug.Log(pontos.Length);
+            pontos[0] = 1f;
+            try
+            {
+                if (pontos.Length != tipo.Atributos.Length)
+                {
+                    Debug.LogWarning("Não se deve ter um número diferente de atributos e pontos.\n"
+                    + "Warning para a carta: "
+                    + name);
+                }
+            }
+            catch (NullReferenceException) { }
+        }
+        internal void Initialize()
+        {
+            pontos = new float[tipo.Atributos.Length];
         }
 
     }
