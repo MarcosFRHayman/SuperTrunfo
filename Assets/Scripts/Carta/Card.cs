@@ -22,8 +22,6 @@ namespace Trunfo
 
         void OnValidate()
         {
-            Debug.Log(pontos.Length);
-            pontos[0] = 1f;
             try
             {
                 if (pontos.Length != tipo.Atributos.Length)

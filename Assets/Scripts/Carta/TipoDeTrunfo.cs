@@ -18,11 +18,6 @@ namespace Trunfo
         [SerializeField] private Sprite modeloDeCarta;
         public string[] Atributos { get => (string[])atributos.Clone(); }
 
-        void OnValidate()
-        {
-            Debug.Log(atributos.Length);
-        }
-
         //Adiciona o comando "Instancia Carta desse Tipo" no menu do Scriptable Object
         [ContextMenu("Instancia Carta Desse Tipo")]
         private void CriaCarta()
