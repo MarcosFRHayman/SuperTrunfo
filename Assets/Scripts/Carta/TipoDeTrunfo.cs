@@ -2,10 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
-using UnityEngine.UI;
-
-//Autor: Marcos Frederico Raposo Hayman
-//Referência: Documentação do Unity
 
 
 namespace Trunfo
@@ -14,11 +10,12 @@ namespace Trunfo
     public class TipoDeTrunfo : ScriptableObject
     {
         [SerializeField] private string nome;
+        [TextArea(2, 5)]
         [SerializeField] private string[] atributos;
-        [SerializeField] private Sprite modeloDeCarta;
+        // [SerializeField] private Sprite modeloDeCarta;
         public string[] Atributos { get => (string[])atributos.Clone(); }
 
-        //Adiciona o comando "Instancia Carta desse Tipo" no menu do Scriptable Object
+        //>Adiciona o comando "Instancia Carta desse Tipo" no menu do Scriptable Object
         [ContextMenu("Instancia Carta Desse Tipo")]
         private void CriaCarta()
         {

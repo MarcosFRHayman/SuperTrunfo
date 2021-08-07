@@ -5,19 +5,20 @@ using UnityEngine;
 
 namespace Trunfo
 {
-    //@Author Higor
     [CreateAssetMenu(menuName = "ScriptableObjects/Card", fileName = "New Card")]
     public class Card : ScriptableObject
     {
-        [SerializeField] public TipoDeTrunfo tipo;
+        public TipoDeTrunfo tipo;
+        [SerializeField] private string identificacao;
         [SerializeField] private string nome;
-        [SerializeField] private string descricao;
         [SerializeReference] private float[] pontos;
         [SerializeField] private Sprite artwork;
 
+
         public string Nome { get => nome; }
-        public string Descricao { get => descricao; }
-        ///A referencia não é alterável
+        public string Identificacao { get => identificacao; }
+        public Sprite Artwork { get => artwork; }
+        ///<Summary> retorna uma cópia dos valores </Summary>
         public float[] Pontos { get => (float[])pontos.Clone(); }
 
         void OnValidate()
@@ -25,11 +26,9 @@ namespace Trunfo
             try
             {
                 if (pontos.Length != tipo.Atributos.Length)
-                {
                     Debug.LogWarning("Não se deve ter um número diferente de atributos e pontos.\n"
                     + "Warning para a carta: "
                     + name);
-                }
             }
             catch (NullReferenceException) { }
         }

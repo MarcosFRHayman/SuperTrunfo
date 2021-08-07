@@ -9,11 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 09491715f4acf694b86822e9a6e2de2f, type: 3}
-  m_Name: Bahia
+  m_Script: {fileID: 11500000, guid: baae4293e6d90a8459d640903ea20b83, type: 3}
+  m_Name: TipoTeste
   m_EditorClassIdentifier: 
-  tipo: {fileID: 0}
-  nome: 
-  pontos:
-  - 0
-  artwork: {fileID: 0}
+  nome: Teste
+  atributos:
+  - "<size=10>POPULA\xC7\xC3O</size><br><size=8>(MILH\xD5ES)</size>"
+  - teste2
+  - teste3
+  - teste4
+  - teste5
