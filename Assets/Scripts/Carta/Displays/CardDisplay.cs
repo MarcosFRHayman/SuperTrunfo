@@ -34,12 +34,13 @@ namespace Trunfo
             ModeloDeFundo.sprite = GerenciadorDeSpriteDeCarta.Frente;
             nome.text = card.Nome;
             identificacao.text = card.Identificacao;
+            artwork.gameObject.SetActive(true);
             artwork.sprite = card.Artwork;
             PontosDeCriterio.Clear();
             for (int i = 0; i < card.Pontos.Length; i++)
             {
                 var novoCriterio = Instantiate(modeloDeCriterio, GetComponentInChildren<VerticalLayoutGroup>()
-                .GetComponentInChildren<RectTransform>());
+                .GetComponent<RectTransform>());
                 novoCriterio.GetComponent<CriterioDisplay>().Inicializa(card, i);
                 PontosDeCriterio.Add(novoCriterio);
             }
@@ -48,6 +49,13 @@ namespace Trunfo
         {
             ModeloDeFundo.sprite = GerenciadorDeSpriteDeCarta.Verso;
             nome.text = "";
+            identificacao.text = "";
+            artwork.gameObject.SetActive(false);
+            for (int i = 0; i < PontosDeCriterio.Count; i++)
+            {
+                Destroy(PontosDeCriterio[i]);
+            }
+            PontosDeCriterio.Clear();
         }
 
     }
